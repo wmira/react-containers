@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Containers</title>
+    <style>
+        
+        .icons {
+            font-size: 30px;
+            color: #EEE;
+            padding: 20px;
+            cursor: pointer;
+        }
+        
+        .icons:hover {
+            color: #23c6c8;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="http://fb.me/react-0.12.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+    <script src="js/react-containers.js"></script>
+</head>
+<body style="margin: 40px;">
+    <!-- Left Right Demo -->
+    <div id="row1" style="border: 1px solid #E6E6E6; width: 400px;">
+        
+    </div>
+    <p></p>
+    <div id="row2" style="border: 1px solid #E6E6E6; width: 600px;">
+
+    </div>
+
+</div>
+
+
+<script type="text/jsx">
+    
+    var Container = Containers.Container;
+    var Right = Containers.Right;
+    var Left = Containers.Left;
+    var Row = Containers.Row;
+    var Column = Containers.Column;
+    var CContainer = Containers.CContainer;
+
+    React.render(
+        <Container style={ {padding: '20px'}}>
+            <Left>
+                   <button>Left Side</button>
+            </Left>
+            <Right>
+                    <button>Right Side</button>
+            </Right>
+        </Container>,
+            document.getElementById("row1")
+    );
+
+    React.render(
+            <Container>
+                <Column width="80px" style={ { borderRight: '1px solid: #E5E5E5' , 'background' :'#293846' }}>
+                    <CContainer className="icons"><i className="fa fa-beer"></i></CContainer>
+                    <CContainer className="icons"><i className="fa fa-comment"></i></CContainer>
+                    <CContainer className="icons"><i className="fa fa-flask"></i></CContainer>
+                    <CContainer className="icons"><i className="fa fa-heartbeat"></i></CContainer>
+                </Column>
+                <Column >
+                    <Row >
+                        <CContainer>
+                            <div style={ {margin: 'auto'}}>HELLO this is a paragraph.</div>
+                        </CContainer>
+                    </Row>        
+                    <Row style={{backgroundColor: "#E5E5E5"}} height="20px">
+                         <span>Footer</span>
+                    </Row>    
+                </Column>
+            </Container>,
+            document.getElementById("row2")
+    );
+    
+</script>
+
+</body>
+</html>

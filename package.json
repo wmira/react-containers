@@ -1,0 +1,30 @@
+{
+  "name": "react-containers",
+  "version": "0.1.1",
+  "description": "Basic Containers",
+  "main": "js/react-panel.js",
+  "author": "Warren Mira <warrenmira@gmail.com>",
+  "scripts": {
+    "build": "webpack src/containers.js js/react-containers.js",
+    "build-min": "NODE_ENV=production COMPRESS=1 webpack src/containers.js js/react-containers.min.js",
+    "watch": "webpack src/containers.js js/react-containers.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmira/react-containers"
+  },
+  "bugs": {
+    "url": "https://github.com/wmira/react-containers/issues"
+  },
+  "homepage": "https://github.com/wmira/react-containers",
+  "keywords": [
+    "react",
+    "react-component",
+    "container"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jsx-loader": "^0.12.2",
+    "react": "^0.12.2"
+  }
+}
