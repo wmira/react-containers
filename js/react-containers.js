@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define(factory);
+		define(["react"], factory);
 	else if(typeof exports === 'object')
-		exports["Containers"] = factory();
+		exports["Containers"] = factory(require("react"));
 	else
-		root["Containers"] = factory();
-})(this, function() {
+		root["Containers"] = factory(root["React"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -57,6 +57,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	/** @jsx React.DOM */
 	/*globals require,module */
 	'use strict';
+
+	var React = __webpack_require__(1);
 
 	var StyleMixin = {
 	    
@@ -190,6 +192,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Column: Column,
 	    Row: Row
 	};
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ }
 /******/ ])
