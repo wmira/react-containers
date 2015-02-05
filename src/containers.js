@@ -2,6 +2,8 @@
 /*globals require,module */
 'use strict';
 
+var React = require("react");
+
 var StyleMixin = {
     
     getDefaultStyle : function() {
