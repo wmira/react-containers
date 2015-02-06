@@ -102,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    render : function() {
 	        var style = this.getDefaultStyle();
-	        style['justify-content'] = 'center';
+	        style['justifyContent'] = 'center';
 	        style['margin'] = 'auto';
 	        return (
 	            React.createElement("div", React.__spread({},  this.props, {style: style}), 
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    
 	    render : function() {
 	        var style = this.getDefaultStyle();
-	        style['flex-direction'] = 'column';
+	        style['flexDirection'] = 'column';
 	        style['flex'] =  this.props.width ? ('0 0 ' + ( this.props.width) ) :  '1 1 auto';
 	        return (
 	            React.createElement("div", {style: style}, 
@@ -136,7 +136,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    mixins: [StyleMixin],
 	    render : function() {
 	        var style = this.getDefaultStyle();
-	        style['flex-direction'] = 'row';
+	        style['flexDirection'] = 'row';
 	        style['flex'] =  this.props.height ? ('0 0 ' + ( this.props.height) ) :  '1 1 auto';
 
 	        return (
