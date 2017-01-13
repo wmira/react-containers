@@ -1,8 +1,8 @@
 {
   "name": "react-containers",
-  "version": "0.1.4",
-  "description": "Basic Containers",
-  "main": "js/react-containers.js",
+  "version": "0.2.0",
+  "description": "Basic Containers with Higher Order Components",
+  "main": "index.js",
   "author": "Warren Mira <warrenmira@gmail.com>",
   "scripts": {
     "build": "webpack src/containers.js js/react-containers.js",
@@ -20,6 +20,7 @@
   "keywords": [
     "react",
     "react-component",
+    "containers",
     "container"
   ],
   "license": "MIT",
