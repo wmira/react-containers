@@ -1,13 +1,12 @@
 {
   "name": "react-containers",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Basic Containers with Higher Order Components",
   "main": "index.js",
   "author": "Warren Mira <warrenmira@gmail.com>",
   "scripts": {
-    "build": "webpack src/containers.js js/react-containers.js",
-    "build-min": "NODE_ENV=production COMPRESS=1 webpack src/containers.js js/react-containers.min.js",
-    "watch": "webpack src/containers.js js/react-containers.js --watch"
+    "predist": "rimraf dist/*",
+    "dist": "babel -d dist ./src && cp package.json dist/"    
   },
   "repository": {
     "type": "git",
@@ -24,8 +23,14 @@
     "container"
   ],
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.0.0"
+  },
   "devDependencies": {
-    "jsx-loader": "^0.12.2",
-    "react": "^0.12.2"
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "rimraf": "^2.5.4"
   }
 }

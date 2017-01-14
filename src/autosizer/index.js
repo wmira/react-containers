@@ -1,2 +1,2 @@
 export { AutoSizer } from './AutoSizer';
-export default from './AutoSizer';
+export default AutoSizer;

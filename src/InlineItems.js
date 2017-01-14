@@ -24,3 +24,4 @@ InlineItems.propTypes = {
     children: PropTypes.node,
     space: PropTypes.number
 };
+
