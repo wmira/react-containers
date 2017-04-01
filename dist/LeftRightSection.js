@@ -34,8 +34,16 @@ var LeftRightSection = exports.LeftRightSection = function LeftRightSection(prop
     return _react2.default.createElement(
         'div',
         { className: '' + (props.className || ''), style: _extends({}, props.style, { display: 'flex', justifyContent: 'space-between' }) },
-        props.children[0],
-        props.children[1]
+        _react2.default.createElement(
+            'div',
+            null,
+            props.children[0] || null
+        ),
+        _react2.default.createElement(
+            'div',
+            null,
+            props.children[1] || null
+        )
     );
 };
 

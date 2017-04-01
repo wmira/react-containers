@@ -4,6 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _Center = require('./Center');
+
+Object.defineProperty(exports, 'Center', {
+  enumerable: true,
+  get: function get() {
+    return _Center.Center;
+  }
+});
+
 var _LeftRightSection = require('./LeftRightSection');
 
 Object.defineProperty(exports, 'LeftRightSection', {

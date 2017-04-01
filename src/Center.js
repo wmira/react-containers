@@ -1,5 +1,6 @@
 
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import styled from 'styled-components';
 
 /**
  * Center horizontally and vertically
@@ -11,12 +12,17 @@ import React, { PropTypes } from 'react';
  *
  *
  */
-export const Center = (props) => (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        { props.children }
-    </div>
-);
+export const Center = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+`;
 
 Center.propTypes = {
     children: PropTypes.node
 };
+
+
+export default Center;

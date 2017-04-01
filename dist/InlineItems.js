@@ -14,17 +14,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
- * <InlineItems rAlign>
- *
- * </InlineItems>
- *
+ * Inlines all the items with a spacer. Useful if you want to display different components inline
+ * 
+ * @param {*} props 
  */
 var InlineItems = exports.InlineItems = function InlineItems(props) {
     return _react2.default.createElement(
         'div',
         { style: { display: 'inline-block' } },
         _react.Children.toArray(props.children).map(function (child, idx) {
-            var spacerField = props.rAlign ? 'paddingLeft' : 'paddingRight';
+            var spacerField = Boolean(props.rAlign) ? 'paddingLeft' : 'paddingRight';
             return _react2.default.createElement(
                 'div',
                 { key: idx, style: _defineProperty({ display: 'inline-block' }, spacerField, props.space) },
@@ -35,10 +34,12 @@ var InlineItems = exports.InlineItems = function InlineItems(props) {
 };
 
 InlineItems.defaultProps = {
-    space: 4
+    space: 4,
+    rAlign: false
 };
 
 InlineItems.propTypes = {
     children: _react.PropTypes.node,
-    space: _react.PropTypes.number
+    space: _react.PropTypes.number,
+    rAlign: _react.PropTypes.bool
 };

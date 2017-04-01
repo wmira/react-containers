@@ -13,19 +13,6 @@ var _Center = require('./Center');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * A higher order component that centers its children
- *
- * import BaseComponent from 'somepackage';
- *
- * const SomeComponent = centerChildren(BaseComponent);
- *
- * <SomeComponent>
- *      <div>THis will be centered</div>
- *      <div>This as well</div>
- * </SomeComponent>
- *
- */
 var centerChildren = exports.centerChildren = function centerChildren(Component) {
     var CenteredComponent = function CenteredComponent(props) {
         return _react2.default.createElement(

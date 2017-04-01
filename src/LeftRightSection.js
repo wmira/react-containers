@@ -21,8 +21,8 @@ import React, { PropTypes } from 'react';
  */
 export const LeftRightSection = (props) => (
     <div className={`${props.className || ''}`} style={{ ...props.style, ...{ display: 'flex', justifyContent: 'space-between' } }}>
-        { props.children[0] }
-        { props.children[1] }
+        <div>{ props.children[0] || null }</div>
+        <div>{ props.children[1] || null }</div>
     </div>
 );
 

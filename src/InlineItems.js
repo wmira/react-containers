@@ -2,26 +2,27 @@
 import React, { PropTypes, Children } from 'react';
 
 /**
- * <InlineItems rAlign>
- *
- * </InlineItems>
- *
+ * Inlines all the items with a spacer. Useful if you want to display different components inline
+ * 
+ * @param {*} props 
  */
 export const InlineItems = (props) => (
     <div style={{display: 'inline-block' }}>
         { Children.toArray(props.children).map( (child, idx) => {
-            const spacerField = props.rAlign ? 'paddingLeft' : 'paddingRight';
+            const spacerField = Boolean(props.rAlign) ? 'paddingLeft' : 'paddingRight';
             return <div key={idx} style={{ display: 'inline-block', [spacerField]: props.space }}>{ child }</div>;
         })}
     </div>
 );
 
 InlineItems.defaultProps = {
-    space: 4
+    space: 4,
+    rAlign: false
 };
 
 InlineItems.propTypes = {
     children: PropTypes.node,
-    space: PropTypes.number
+    space: PropTypes.number,
+    rAlign: PropTypes.bool
 };
 
