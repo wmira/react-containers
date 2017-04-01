@@ -35,7 +35,7 @@ import { LeftRightSection } from 'react-containers';
 ## InlineItems
 
 
-## CenteredContent
+## Center
 
 This container will center horizontally and verticall a component rendered inside. By default it will automatically centered within the parent container as so...
 
