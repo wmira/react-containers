@@ -1,6 +1,7 @@
 
 
-import React, { PropTypes } from 'react';
+import React, { Children } from 'react';
+import PropTypes from 'prop-types'
 
 /**
  *

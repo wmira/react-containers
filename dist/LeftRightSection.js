@@ -11,6 +11,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -31,7 +35,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  */
 var LeftRightSection = exports.LeftRightSection = function LeftRightSection(props) {
-    var children = Children.toArray(props.children);
+    var children = _react.Children.toArray(props.children);
     return _react2.default.createElement(
         'div',
         { className: '' + (props.className || ''), style: _extends({}, props.style, { display: 'flex', justifyContent: 'space-between' }) },
@@ -49,9 +53,9 @@ var LeftRightSection = exports.LeftRightSection = function LeftRightSection(prop
 };
 
 LeftRightSection.propTypes = {
-    children: _react.PropTypes.array,
-    style: _react.PropTypes.object,
-    className: _react.PropTypes.string
+    children: _propTypes2.default.array,
+    style: _propTypes2.default.object,
+    className: _propTypes2.default.string
 };
 
 exports.default = LeftRightSection;

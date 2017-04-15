@@ -7,7 +7,9 @@ exports.Center = undefined;
 
 var _templateObject = _taggedTemplateLiteral(['\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n    width: 100%;\n'], ['\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n    width: 100%;\n']);
 
-var _react = require('react');
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _styledComponents = require('styled-components');
 
@@ -30,7 +32,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 var Center = exports.Center = _styledComponents2.default.div(_templateObject);
 
 Center.propTypes = {
-    children: _react.PropTypes.node
+    children: _propTypes2.default.node
 };
 
 exports.default = Center;

@@ -1,6 +1,6 @@
 {
   "name": "react-containers",
-  "version": "15.0.3",
+  "version": "15.0.4",
   "description": "Common Reusable React Containers",
   "main": "index.js",
   "author": "Warren Mira <warrenmira@gmail.com>",
@@ -25,9 +25,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "styled-components": "^1.4.4"
+    "react": "^15",    
+    "prop-types": "^15.5.8",
+    "styled-components": "^1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

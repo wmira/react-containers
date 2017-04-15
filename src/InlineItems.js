@@ -1,6 +1,6 @@
 
-import React, { PropTypes, Children } from 'react';
-
+import React, { Children } from 'react';
+import PropTypes from 'prop-types'
 /**
  * Inlines all the items with a spacer. Useful if you want to display different components inline
  * 
