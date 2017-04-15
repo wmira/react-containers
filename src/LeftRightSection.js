@@ -21,10 +21,12 @@ import React, { PropTypes } from 'react';
  */
 export const LeftRightSection = (props) => {
     const children = Children.toArray(props.children);
-    <div className={`${props.className || ''}`} style={{ ...props.style, ...{ display: 'flex', justifyContent: 'space-between' } }}>
-        <div>{ children[0] || null }</div>
-        <div>{ children[1] || null }</div>
-    </div>
+    return (
+        <div className={`${props.className || ''}`} style={{ ...props.style, ...{ display: 'flex', justifyContent: 'space-between' } }}>
+            <div>{ children[0] || null }</div>
+            <div>{ children[1] || null }</div>
+        </div>
+    );
 }
 
 LeftRightSection.propTypes = {
