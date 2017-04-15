@@ -33,7 +33,7 @@ const Title = styled.div`
     padding: 10px;
 `
 
-export class LeftRightExample extends React.Component {
+export class LeftRightPlayground extends React.Component {
 
 
     render() {
@@ -63,3 +63,6 @@ export class LeftRightExample extends React.Component {
         );
     }
 }
+
+
+export default LeftRightPlayground;

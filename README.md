@@ -2,28 +2,42 @@
 
 Components and Higher Order Components for commonly used React containers
 
-## Left and Right Sections
+# Dev and Running the Examples
 
+
+## Via React Playground VSCode Extension
+
+Install vscode [React Playground Extension](https://marketplace.visualstudio.com/items?itemName=wmira.react-playground-vscode) and open the file LeftRightPlayground.js from the repository.
+Launch React-Playground via Ctrl+Alt+P then select React Playground. 
+
+## Via npm playground script
+
+```javascript
+    npm install    
+    npm run playground -- playground/leftRightSection.js
+```
+Then open your browser and point to port 8080. To run with a different port:
+
+```javascript
+npm run playground -- --port=8181 playground/leftRightSection.js
+```
+
+You can launch other examples under the playground folder.
+
+## codesandbox.io
+
+There are links below to codesandbox.io to run/play with the examples
+
+# Components
+
+## Left and Right Sections
 
 Provide a left and/or right section. The first element is the left section while the second element is the right section. Note that if you only require a right section then make sure that the first element is not empty.
 
-You can run/edit the example below via codesandbox or via playground vscode or webpack playground
-
-Install vscode [React Playground Extension](https://marketplace.visualstudio.com/items?itemName=wmira.react-playground-vscode) and open the file LeftRightPlayground.js from the repository.
-Launch React-Playground via Ctrl+Alt+P then select React Playground. You should see the screenshot below
-
-![alt tag](https://raw.githubusercontent.com/wmira/react-containers/master/ss/playground-vscode.png) 
-
-Invoke Example via npm playground script
-
-```javascript
-    npm install
-    npm run playground -- playground/leftRightSection.js
-```
-
-[LeftRightSection example at codesandbox.io](https://codesandbox.io/s/R6XQoX4ww)
 
 ![alt tag](https://raw.githubusercontent.com/wmira/react-containers/master/ss/lrsection.png) 
+
+[LeftRightSection example at codesandbox.io](https://codesandbox.io/s/R6XQoX4ww)
 
 Left And Right Section
 
