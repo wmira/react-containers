@@ -1,10 +1,9 @@
 
 
 import React from 'react';
-import { render } from 'react-dom';
 import styled from 'styled-components';
 
-import { LeftRightSection, Center, InlineItems } from 'react-containers';
+import { LeftRightSection, Center, InlineItems } from './index';
 
 const Container = styled.div`
     width: 620px;
@@ -34,7 +33,7 @@ const Title = styled.div`
     padding: 10px;
 `
 
-class LeftRightExample extends React.Component {
+export class LeftRightExample extends React.Component {
 
 
     render() {
@@ -64,5 +63,3 @@ class LeftRightExample extends React.Component {
         );
     }
 }
-
-render(<LeftRightExample />, document.getElementById('app'));
