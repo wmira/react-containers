@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.LeftRightSection = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _templateObject = _taggedTemplateLiteral(['\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: space-between;\n'], ['\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: space-between;\n']);
 
 var _react = require('react');
 
@@ -15,7 +15,18 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var LeftRightContainer = _styledComponents2.default.div(_templateObject);
+var Empty = function Empty() {
+    return _react2.default.createElement('div', null);
+};
 
 /**
  *
@@ -37,18 +48,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var LeftRightSection = exports.LeftRightSection = function LeftRightSection(props) {
     var children = _react.Children.toArray(props.children);
     return _react2.default.createElement(
-        'div',
-        { className: '' + (props.className || ''), style: _extends({}, props.style, { display: 'flex', justifyContent: 'space-between' }) },
-        _react2.default.createElement(
-            'div',
-            null,
-            children[0] || null
-        ),
-        _react2.default.createElement(
-            'div',
-            null,
-            children[1] || null
-        )
+        LeftRightContainer,
+        null,
+        children[0] ? children[0] : _react2.default.createElement(Empty, null),
+        children[1] ? children[1] : _react2.default.createElement(Empty, null)
     );
 };
 

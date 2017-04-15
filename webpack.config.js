@@ -14,6 +14,7 @@ module.exports = {
     },
 
     devServer: {
-        inline: true
+        inline: true,
+        overlay:true
     }
 };

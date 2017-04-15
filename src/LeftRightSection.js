@@ -2,6 +2,15 @@
 
 import React, { Children } from 'react';
 import PropTypes from 'prop-types'
+import styled from 'styled-components';
+
+const LeftRightContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+`
+const Empty = () => <div></div>;
 
 /**
  *
@@ -21,12 +30,12 @@ import PropTypes from 'prop-types'
  *
  */
 export const LeftRightSection = (props) => {
-    const children = Children.toArray(props.children);
+    const children = Children.toArray(props.children);    
     return (
-        <div className={`${props.className || ''}`} style={{ ...props.style, ...{ display: 'flex', justifyContent: 'space-between' } }}>
-            <div>{ children[0] || null }</div>
-            <div>{ children[1] || null }</div>
-        </div>
+        <LeftRightContainer>
+            { children[0] ? children[0] : <Empty /> }
+            { children[1] ? children[1] : <Empty /> }
+        </LeftRightContainer>
     );
 }
 

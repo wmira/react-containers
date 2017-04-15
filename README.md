@@ -7,27 +7,40 @@ Components and Higher Order Components for commonly used React containers
 
 Provide a left and/or right section. The first element is the left section while the second element is the right section. Note that if you only require a right section then make sure that the first element is not empty.
 
+![alt tag](https://raw.githubusercontent.com/wmira/react-containers/master/ss/lrsection.png) 
+
+Left And Right Section
+
 ```javascript
-import { LeftRightSection } from 'react-containers';
+import { LeftRightSection, Center } from 'react-containers';
 
 //left and right
-<LeftRightSection>
-    <MyComponentToPlaceOnLeft>Left</MyComponentToPlaceOnLeft>
-    <div>Right</div>
-</LeftRightSection>
+<LeftRightSection>                   
+    <div><Center><ProductTitle>Cool Product</ProductTitle></Center></div>
+    <div><Center><Menus/></Center></div>                    
+</LeftRightSection>     
 
 ```
 
-If you have right section only
+Left Side Only
+
+```javascript
+import { LeftRightSection, Center } from 'react-containers';
+
+<LeftRightSection>
+    <div><Center><ProductTitle>Cool Product</ProductTitle></Center></div>
+</LeftRightSection>
+```
+
+Right Side Only
 
 
 ```javascript
-import { LeftRightSection } from 'react-containers';
+import { LeftRightSection, Center } from 'react-containers';
 
-//left and right
 <LeftRightSection>
     <div></div>
-    <div>Right Only</div>
+    <div><Center><Menus/></Center></div>
 </LeftRightSection>
 
 ```
