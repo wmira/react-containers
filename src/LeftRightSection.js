@@ -19,12 +19,13 @@ import React, { PropTypes } from 'react';
  * </LeftRightSection>
  *
  */
-export const LeftRightSection = (props) => (
+export const LeftRightSection = (props) => {
+    const children = Children.toArray(props.children);
     <div className={`${props.className || ''}`} style={{ ...props.style, ...{ display: 'flex', justifyContent: 'space-between' } }}>
-        <div>{ props.children[0] || null }</div>
-        <div>{ props.children[1] || null }</div>
+        <div>{ children[0] || null }</div>
+        <div>{ children[1] || null }</div>
     </div>
-);
+}
 
 LeftRightSection.propTypes = {
     children: PropTypes.array,

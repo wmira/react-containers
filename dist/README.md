@@ -12,7 +12,7 @@ import { LeftRightSection } from 'react-containers';
 
 //left and right
 <LeftRightSection>
-    <div>Left</div>
+    <MyComponentToPlaceOnLeft>Left</MyComponentToPlaceOnLeft>
     <div>Right</div>
 </LeftRightSection>
 

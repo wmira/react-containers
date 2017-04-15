@@ -31,18 +31,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  */
 var LeftRightSection = exports.LeftRightSection = function LeftRightSection(props) {
-    return _react2.default.createElement(
+    var children = Children.toArray(props.children);
+    _react2.default.createElement(
         'div',
         { className: '' + (props.className || ''), style: _extends({}, props.style, { display: 'flex', justifyContent: 'space-between' }) },
         _react2.default.createElement(
             'div',
             null,
-            props.children[0] || null
+            children[0] || null
         ),
         _react2.default.createElement(
             'div',
             null,
-            props.children[1] || null
+            children[1] || null
         )
     );
 };
