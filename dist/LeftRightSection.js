@@ -56,7 +56,7 @@ var LeftRightSection = exports.LeftRightSection = function LeftRightSection(prop
 };
 
 LeftRightSection.propTypes = {
-    children: _propTypes2.default.array,
+    children: _propTypes2.default.node,
     style: _propTypes2.default.object,
     className: _propTypes2.default.string
 };

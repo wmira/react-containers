@@ -40,7 +40,7 @@ export const LeftRightSection = (props) => {
 }
 
 LeftRightSection.propTypes = {
-    children: PropTypes.array,
+    children: PropTypes.node,
     style: PropTypes.object,
     className: PropTypes.string
 };

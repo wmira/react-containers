@@ -1,6 +1,6 @@
 {
   "name": "react-containers",
-  "version": "15.0.6",
+  "version": "15.0.7",
   "description": "Common Reusable React Containers",
   "main": "index.js",
   "author": "Warren Mira <warrenmira@gmail.com>",
