@@ -26,7 +26,7 @@ class CenterChildrenExample extends React.Component {
                     <Item>3</Item>
                 </MyCustomComp>
                 <br/>
-                <div> Horizontally Center Children </div>                
+                <div> Horizontally Centered Children </div>                
                 <MyCenteredCustomComp>
                     <Item>1</Item>
                     <Item>2</Item>
