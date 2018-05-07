@@ -3,18 +3,18 @@ const path = require('path');
 module.exports = {
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'] }
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader'
+            }
         ]
     },
     devtool: 'source-map',
     resolve: {
-        alias: {
-            'react-containers': path.resolve(__dirname, 'src')
-        }
+        extensions: [".ts", ".tsx", ".js"]        
     },
 
     devServer: {
-        inline: true,
-        overlay:true
+        inline: true        
     }
 };
