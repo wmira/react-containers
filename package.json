@@ -1,6 +1,6 @@
 {
   "name": "react-containers",
-  "version": "15.0.7",
+  "version": "15.1.1",
   "description": "Common Reusable React Containers",
   "main": "index.js",
   "types": "index.d.ts",
@@ -8,7 +8,7 @@
   "scripts": {
     "predist": "rimraf dist/*",
     "playground": "webpack-dev-server --mode development --content-base playground ",
-    "dist": "babel -d dist ./src && cp package.json dist/ && cp README.md dist/"
+    "dist": "tsc && cp package.json dist/ && cp README.md dist/"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,9 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "prop-types": "^15.5.8",
-    "react": "^15",
-    "react-dom": "^15"
+    "prop-types": ">=15",
+    "react": ">=15",
+    "react-dom": ">=15"
   },
   "devDependencies": {
     "@types/prop-types": "^15.5.2",
