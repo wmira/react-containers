@@ -1,6 +1,6 @@
 {
   "name": "react-containers",
-  "version": "15.1.3",
+  "version": "15.2.1",
   "description": "Common Reusable React Containers",
   "main": "index.js",
   "types": "index.d.ts",
