@@ -6,7 +6,7 @@ export interface IMappingOverProp<E = {}, CP = {}> {
     children: (elemenent: E, index: number) => React.ReactElement<CP>
 }
 
-export class MappingOver extends React.PureComponent<IMappingOverProp> {
+export class MappingOver<E> extends React.PureComponent<IMappingOverProp<E>> {
 
 
     public render() {
