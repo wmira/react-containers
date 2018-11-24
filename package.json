@@ -27,8 +27,7 @@
     "container"
   ],
   "license": "MIT",
-  "peerDependencies": {
-    "prop-types": ">=15",
+  "peerDependencies": {    
     "react": ">=15",
     "react-dom": ">=15",
     "styled-components": ">3"
