@@ -6,12 +6,15 @@
         "module": "commonjs",
         "target": "es5",
         "jsx": "react",
+        "baseUrl": ".",
         "moduleResolution": "node",
         "lib": ["es5", "es6", "dom"],       
-	"declaration": true
+        "declaration": true,
+        "keyofStringsOnly": true
 
-    },
-    "include": [
-        "./src/**/*"
+    },    
+    "exclude": [
+        "node_modules",
+        "playground"
     ]
 }

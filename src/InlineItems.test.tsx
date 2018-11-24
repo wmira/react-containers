@@ -5,6 +5,7 @@ import { InlineItems } from "./InlineItems";
 import 'jest-styled-components'
 
 describe('<InlineItems/>', () => {
+
   it('renders items inlined', () => {
     const underTest = mount(
       <InlineItems>
@@ -15,6 +16,7 @@ describe('<InlineItems/>', () => {
     expect(underTest).toHaveStyleRule('display', 'flex')
     expect(underTest.find('.x')).toHaveLength(2)
   })
+
   it('uses container for items if specified', () => {
     const CustomCont: React.SFC = (props) => <div>{ props.children }</div>
     const underTest = mount(
