@@ -1,15 +1,18 @@
 
+import { mount } from 'enzyme'
+import 'jest-styled-components'
 import * as React from 'react'
-import * as Enzyme from 'enzyme'
-import * as Adapter from 'enzyme-adapter-react-16'
-import { shallow } from 'enzyme'
 import { Center } from './Center'
 
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Center', () => {
     it('renders using flex and centers items', () => {
-        const wrapper = shallow(<Center><div>Hello</div></Center>);
-        expect(wrapper.find('.sc-bdVaJa .gIMrlE').length).toBe(1)
+      const wrapper = mount(<Center><div>Hello</div></Center>);
+
+      expect(wrapper).toHaveStyleRule('display', 'flex')
+      expect(wrapper).toHaveStyleRule('justify-content', 'center')
+      expect(wrapper).toHaveStyleRule('align-items', 'center')
+      expect(wrapper).toHaveStyleRule('height', '100%')
+      expect(wrapper).toHaveStyleRule('width', '100%')
     })
 })

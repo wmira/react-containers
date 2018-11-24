@@ -1,0 +1,17 @@
+
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [      
+      "node_modules/**/*.ts"
+    ]
+  },
+  "rules": {    
+    "object-literal-sort-keys": false,
+    "no-unused-expression": false,    
+    "interface-over-type-literal": true,    
+    "no-trailing-whitespace": true,
+    "indent": [true, "spaces", 2]
+  }
+
+}
