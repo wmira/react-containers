@@ -1,0 +1,28 @@
+
+image: node:alpine
+
+
+cache:
+  paths:  
+  - dist
+
+
+stages:
+    - build
+    - publish
+
+
+build:        
+    stage: build    
+    script:
+        - npm install
+        - npm run test
+        - npm run dist                
+
+npm_publish:        
+    stage: publish
+    only:
+        - tags
+    script:
+        - "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"    
+        - npm publish dist
