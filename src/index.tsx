@@ -1,9 +1,9 @@
 
 
 export { Center } from './Center'
-export { RenderIf } from './RenderIf'
+export { Render } from './Render'
 export { LeftRightSection } from './LeftRightSection';
 export { InlineItems } from './InlineItems';
-export { centerChildren } from './centerChildren'
 export { findChild } from './findChild'
 export { MappingOver } from './MappingOver'
+export { WrappingChildren } from './WrappingChildren'

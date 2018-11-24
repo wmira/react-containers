@@ -1,36 +1,56 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-
+import { MappingOver } from './MappingOver';
+import { Flex } from './styled'
 const { Children } = React
 
 export interface InlineItemsProps {
-    rAlign?: boolean //is it right align?, default is false
-    padding?: number //the default padding
-    children?: React.ReactNode    
-    container?: React.ReactType
+    rAlign?: boolean // is it right align?, default is false
+    children?: React.ReactNode | React.ReactNode[]
+    container?: React.ComponentType
 }
 
-const InlineContainer = styled.div`
-    display: flex;
-    flex-direction: row;
+const RightPad = styled.div`
+    padding-right: 4px;
+`
+const LeftPad = styled.div`
+    padding-right: 4px;
 `
 
-export const InlineItems: React.SFC<InlineItemsProps> = (props: InlineItemsProps ) => (
-    <InlineContainer>
-        { Children.toArray(props.children || []).map( (child, idx) => {
-            const spacerField = props.rAlign ? 'paddingLeft' : 'paddingRight';
-            const ContainerToUse = props.container
-            if ( ContainerToUse ) {
-                return <ContainerToUse style={{ [spacerField]: props.padding }} key={idx} >{ child }</ContainerToUse>
-            }
-            return <div style={{ [spacerField]: props.padding }}>{ child }</div>;
-        })}
-    </InlineContainer>
-);
+RightPad.displayName = "ReactContainers-RightPad"
+LeftPad.displayName = "ReactContainers-LeftPad"
 
-InlineItems.defaultProps = {
-    padding: 4,
-    rAlign: false
-};
+const getContainerToUse = (props:InlineItemsProps) => {
+    if ( props.container ) {
+        return props.container
+    }
+    if ( props.rAlign ) {
+        return LeftPad
+    }
+
+    return RightPad
+}
+
+export class InlineItems extends React.PureComponent<InlineItemsProps> {
+
+    public static displayName = "ReactContainers-InlineItems"
+    public static defaultProps = { rAlign: false }
+
+    public renderChild = (child: React.ReactChild, index: number) => {
+        const Container = getContainerToUse(this.props)
+        return <Container key={index}>{ child }</Container>;
+    }
+    public render() {
+        const { props } = this
+        return (
+            <Flex>
+                <MappingOver
+                    collection={Children.toArray(props.children) || []}>
+                    { this.renderChild }
+                </MappingOver>
+            </Flex>
+        )
+    }
+}
 

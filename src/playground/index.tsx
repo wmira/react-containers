@@ -1,9 +1,13 @@
 
 import * as React from 'react'
 import { render } from 'react-dom'
+import styled from 'styled-components'
 import { Center } from '../'
 import { InlineItems } from '../InlineItems';
 import { MappingOver } from '../MappingOver'
+import { Flex } from '../styled';
+import { WrappingChildren } from '../WrappingChildren';
+
 export const CenterDemo = () => (
     <div style={{width: 300, height: 300, border: '1px solid #AAA'}}>
         <Center>
@@ -27,36 +31,51 @@ const col = [
 ]
 export class MappingOverDemo extends React.Component {
 
-    public map = (o: any) => {
+    public map = (o: any, idx: number) => {
         return (
-            <div>{ o.name }</div>
+            <div key={idx}>{ o.name }</div>
         )
     }
 
     public render() {
         return (
-            <div>
-                <MappingOver collection={col}>
-                    { this.map }
-                </MappingOver>
-            </div>
+
+            <MappingOver
+                collection={col}>
+                { this.map }
+            </MappingOver>
         )
     }
 }
+const Container = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+`
 
+const Wrapper = styled(Center)`
+    background: seagreen;
+    color: white;
+    padding: 6px 10px;
+    margin: 1px;
+    width: 60px;
+    height: 22px;
+`
 const renderPlayground = () => {
-    
+
     const element = document.getElementById('app')
-    render( 
-        <>
-            <div style={{width: 'width: 100%', height: '100%'}}>            
-                <CenterDemo/>
-                <InlineDemo/>
-                <MappingOverDemo/>
-            </div>            
-        </>
-    , 
+    render(
+        <Container>
+            <CenterDemo/>
+            <InlineDemo/>
+            <Flex>
+                <WrappingChildren with={Wrapper}>
+                    <div>Hello</div>
+                    <div>There</div>
+                </WrappingChildren>
+            </Flex>
+        </Container>
+    ,
     element)
 }
-
 renderPlayground()

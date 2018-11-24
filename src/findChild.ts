@@ -1,27 +1,25 @@
 import * as React from 'react'
-import { ReactElement, ReactNode, Children } from 'react'
+import { Children, ReactElement, ReactNode } from 'react'
 
 /**
- * Find the given type unde the given props.
- * 
- * 
- * @param type 
- * @param props 
- * @returns undefined if none is found
+ * Find immediate child of an element
+ *
+ * @param type
+ * @param props
  */
-export const findChild = <TP, P extends { children?: ReactNode }>(type: React.SFC<TP>, props: P): ReactElement<TP> => {
+export const findChild = <TP, P extends { children?: ReactNode }>(
+    type: React.ComponentType<TP>,
+    props: P
+): ReactElement<TP & { children?: ReactNode }> => {
 
     const { children } = props
+    const childrenArr = Children.toArray(children)
 
-    const el = Children.toArray(children).reduce( (found, node) => {
-        const element = node as ReactElement<any>
-        if ( found ) {
-            return found
-        } else if ( element && element.type === type ) {
-            return node
+    for ( const child of childrenArr ) {
+        const childEl = child as React.ReactElement<TP>
+        if ( childEl && childEl.type === type ) {
+            return childEl;
         }
-        return undefined
-    }, undefined)
-
-    return el as ReactElement<TP>
+    }
+    return undefined;
 }

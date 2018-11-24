@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'styled-components';
-import { StyledComponentClass } from 'styled-components'
 
 export const Center = styled.div`
     display: flex;
@@ -9,5 +8,7 @@ export const Center = styled.div`
     height: 100%;
     width: 100%;
 `
+
+Center.displayName = 'ReactContainers-Center'
 
 export default Center
