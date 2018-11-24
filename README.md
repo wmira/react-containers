@@ -1,7 +1,7 @@
 # react-containers
 
-[![Build Status](https://gitlab.com/wmira/react-containers/badges/master/build.svg)](https://gitlab.com/wmira/react-containers/pipelines)[![coverage report](https://gitlab.com/wmira/react-containers/badges/master/coverage.svg)](https://gitlab.com/wmira/react-containers/commits/master)
-[![npm version](https://badge.fury.io/js/react-containers.svg)](https://badge.fury.io/js/react-containers)
+[![Build Status](https://img.shields.io/gitlab/pipeline/wmira/react-containers.svg?style=for-the-badge)](https://gitlab.com/wmira/react-containers/pipelines)[![coverage report](https://gitlab.com/wmira/react-containers/badges/master/coverage.svg)](https://gitlab.com/wmira/react-containers/commits/master)
+[![npm version](https://img.shields.io/npm/v/react-containers.svg?style=for-the-badge)](https://badge.fury.io/js/react-containers)
 
 
 # Usage
