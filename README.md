@@ -1,5 +1,9 @@
 # react-containers
 
+[![Build Status](https://gitlab.com/wmira/react-containers/badges/master/build.svg)](https://gitlab.com/wmira/react-containers/pipelines)[![coverage report](https://gitlab.com/wmira/react-containers/badges/master/coverage.svg)](https://gitlab.com/wmira/react-containers/commits/master)
+[![npm version](https://badge.fury.io/js/react-containers.svg)](https://badge.fury.io/js/react-containers)
+
+
 # Usage
 
 ```

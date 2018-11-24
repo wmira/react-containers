@@ -1,7 +1,6 @@
 
 image: node:alpine
 
-
 cache:
   paths:  
   - dist
