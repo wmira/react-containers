@@ -1,9 +1,9 @@
 
 import { mount } from 'enzyme'
 import * as React from 'react'
-import { RenderIf } from './RenderIf';
+import { Render } from './Render';
 
-describe("<RenderIf/>", () => {
+describe("<Render/>", () => {
   const MyComp: React.SFC = () => ( <div>Hello</div> )
   const provider = () => <MyComp>test</MyComp>
   const returnFalse = () => false
@@ -13,15 +13,15 @@ describe("<RenderIf/>", () => {
     when expr is falsy
   `, () => {
     const fn = jest.fn(provider)
-    const wrapper = mount(
-                <RenderIf
-                  expr={false}
+    const underTest = mount(
+                <Render
+                  ifTrue={false}
                 >
                   { fn }
-                </RenderIf>
+                </Render>
     )
     // provider is not called thus no MyComp
-    expect(wrapper.find(MyComp).length).toBe(0)
+    expect(underTest.find(MyComp).length).toBe(0)
     expect(fn).not.toHaveBeenCalled()
   })
 
@@ -30,15 +30,15 @@ describe("<RenderIf/>", () => {
     when expr is truthy
   `, () => {
     const fn = jest.fn(provider)
-    const wrapper = mount(
-                <RenderIf
-                  expr={true}
+    const underTest = mount(
+                <Render
+                  ifTrue={true}
                 >
                   { fn }
-                </RenderIf>
+                </Render>
     )
     // provider is called here
-    expect(wrapper.find(MyComp).length).toBe(1)
+    expect(underTest.find(MyComp).length).toBe(1)
     expect(fn).toHaveBeenCalled()
   })
 
@@ -49,14 +49,14 @@ describe("<RenderIf/>", () => {
   `, () => {
     const falsyFn = jest.fn(returnFalse)
     const fn = jest.fn(provider)
-    const wrapper = mount(
-                <RenderIf
-                  expr={falsyFn}
+    const underTest = mount(
+                <Render
+                  ifTrue={falsyFn}
                 >
                   { fn }
-                </RenderIf>
+                </Render>
     )
-    expect(wrapper.find(MyComp).length).toBe(0)
+    expect(underTest.find(MyComp).length).toBe(0)
     expect(falsyFn).toHaveBeenCalledTimes(1)
     expect(fn).not.toHaveBeenCalled()
   })
@@ -68,14 +68,14 @@ describe("<RenderIf/>", () => {
   `, () => {
     const truthyFn = jest.fn(returnTrue)
     const fn = jest.fn(provider)
-    const wrapper = mount(
-                <RenderIf
-                  expr={truthyFn}
+    const underTest = mount(
+                <Render
+                  ifTrue={truthyFn}
                 >
                   { fn }
-                </RenderIf>
+                </Render>
     )
-    expect(wrapper.find(MyComp).length).toBe(1)
+    expect(underTest.find(MyComp).length).toBe(1)
     expect(truthyFn).toHaveBeenCalledTimes(1)
     expect(fn).toHaveBeenCalledTimes(1)
   })
@@ -84,27 +84,44 @@ describe("<RenderIf/>", () => {
     does not render child element
     if expr is falsy
   `, () => {
-    const wrapper = mount(
-                <RenderIf
-                  expr={false}
+    const underTest = mount(
+                <Render
+                  ifTrue={false}
                 >
                   <MyComp />
-                </RenderIf>
+                </Render>
     )
-    expect(wrapper.find(MyComp).length).toBe(0)
+    expect(underTest.find(MyComp).length).toBe(0)
   })
 
   it(`
     renders child element
     if expr is truthy
   `, () => {
-    const wrapper = mount(
-                <RenderIf
-                  expr={true}
+
+    const underTest = mount(
+                <Render
+                  ifTrue={true}
                 >
                   <MyComp />
-                </RenderIf>
+                </Render>
     )
-    expect(wrapper.find(MyComp).length).toBe(1)
+    expect(underTest.find(MyComp).length).toBe(1)
+  })
+
+  it(`
+    returns null if child function returns undefined
+  `, () => {
+    // we just make sure this renders properly and will not throw error
+    // if fn returns undefined, react cant render
+    const fn = jest.fn(() => undefined)
+    const underTest = mount(
+                  <Render
+                    ifTrue={true}>
+                    { fn }
+                  </Render>
+    )
+    expect(underTest.childAt(0)).toHaveLength(0)
+
   })
 })

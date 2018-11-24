@@ -8,14 +8,13 @@ export interface IWrappingChildrenProp<W={}> {
 }
 
 export const WrappingChildren: React.SFC<IWrappingChildrenProp> = props => {
-
-    const { with: Wrapper, wrapperProps = {}} = this.props
+    const { with: Wrapper, wrapperProps = {}} = props
     return (
         <>
             {
-                React.Children.toArray( (child: React.ReactElement<any>) => {
+                React.Children.toArray(props.children).map( (child: React.ReactElement<any>, index: number) => {
                     return (
-                        <Wrapper {...wrapperProps}>{ child }</Wrapper>
+                        <Wrapper key={index} {...wrapperProps}>{ child }</Wrapper>
                     )
                 })
             }

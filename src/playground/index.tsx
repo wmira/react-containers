@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { Center } from '../'
 import { InlineItems } from '../InlineItems';
 import { MappingOver } from '../MappingOver'
+import { Flex } from '../styled';
+import { WrappingChildren } from '../WrappingChildren';
 
 export const CenterDemo = () => (
     <div style={{width: 300, height: 300, border: '1px solid #AAA'}}>
@@ -50,18 +52,28 @@ const Container = styled.div`
     height: 100%;
     padding: 8px;
 `
+
+const Wrapper = styled(Center)`
+    background: seagreen;
+    color: white;
+    padding: 6px 10px;
+    margin: 1px;
+    width: 60px;
+    height: 22px;
+`
 const renderPlayground = () => {
 
     const element = document.getElementById('app')
     render(
         <Container>
-            {/* <CenterDemo/>
-            <InlineDemo/> */}
-            <>
-                <InlineItems>
-                    <MappingOverDemo/>
-                </InlineItems>
-            </>
+            <CenterDemo/>
+            <InlineDemo/>
+            <Flex>
+                <WrappingChildren with={Wrapper}>
+                    <div>Hello</div>
+                    <div>There</div>
+                </WrappingChildren>
+            </Flex>
         </Container>
     ,
     element)

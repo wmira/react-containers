@@ -1,7 +1,12 @@
 import * as React from 'react'
 import { Children, ReactElement, ReactNode } from 'react'
 
-
+/**
+ * Find immediate child of an element
+ *
+ * @param type
+ * @param props
+ */
 export const findChild = <TP, P extends { children?: ReactNode }>(
     type: React.ComponentType<TP>,
     props: P

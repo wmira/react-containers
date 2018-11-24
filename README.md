@@ -1,32 +1,86 @@
 # react-containers
 
-Components and Higher Order Components for commonly used React containers
+# Usage
 
-# Dev and Running the Examples
-
-
-## Via React Playground VSCode Extension
-
-Install vscode [React Playground Extension](https://marketplace.visualstudio.com/items?itemName=wmira.react-playground-vscode) and open the file LeftRightPlayground.js from the repository.
-Launch React-Playground via Ctrl+Alt+P then select React Playground. 
-
-## Via npm playground script
-
-```javascript
-    npm install    
-    npm run playground -- playground/leftRightSection.js
 ```
-Then open your browser and point to port 8080. To run with a different port:
-
-```javascript
-npm run playground -- --port=8181 playground/leftRightSection.js
+    npm install --save react-containers
 ```
 
-You can launch other examples under the playground folder.
+```javascript
+import {
+    Center
+    Render
+    LeftRightSection,
+    InlineItems,
+    findChild,
+    MappingOver,
+    WrappingChildren
+} from 'react-containers'
 
-## codesandbox.io
+```
 
-There are links below to codesandbox.io to run/play with the examples
+# Motivation
+
+The following components can be used to write a more declarative React components.
+These components combined with others like styled-components for example provides
+with a much more easier to read source code.
+
+Take for example the source code of a component below
+
+```javascript
+
+render() {
+
+    return (
+        <div className={css.container}>
+            { this.state.items.map( (item,index) => {
+                return (
+                    <Item 
+                        onClick={this.onItemClicked}
+                        key={index} 
+                        data={item}>
+                        { item.name }
+                    </Item>
+                )
+            })}
+        </div>
+
+    )
+
+}
+
+```
+
+Although the code above works, it is much easier to read something like
+the one below
+
+```javascript
+...
+renderItem = (item, index) => (
+    <Item 
+        onClick={this.onItemClicked}
+        key={index} 
+        data={item}>
+        { item.name }
+    </Item>
+)
+
+render() {
+
+    return (
+        <Container>
+            <MappingOver collection={this.state.items}>
+                { this.renderItem }
+            </MappingOver>
+        </Container>
+
+    )
+
+}
+
+...
+
+```
 
 # Components
 
@@ -35,10 +89,6 @@ There are links below to codesandbox.io to run/play with the examples
 Provide a left and/or right section. The first element is the left section while the second element is the right section. Note that if you only require a right section then make sure that the first element is not empty.
 
 
-![alt tag](https://raw.githubusercontent.com/wmira/react-containers/master/ss/lrsection.png) 
-
-[LeftRightSection example at codesandbox.io](https://codesandbox.io/s/R6XQoX4ww)
-
 Left And Right Section
 
 ```javascript
@@ -46,20 +96,10 @@ import { LeftRightSection, Center } from 'react-containers';
 
 //left and right
 <LeftRightSection>                   
-    <div><Center><ProductTitle>Cool Product</ProductTitle></Center></div>
-    <div><Center><Menus/></Center></div>                    
+    <ProductTitle>Cool Product</ProductTitle>
+    <Center><Menus/></Center>
 </LeftRightSection>     
 
-```
-
-Left Side Only
-
-```javascript
-import { LeftRightSection, Center } from 'react-containers';
-
-<LeftRightSection>
-    <div><Center><ProductTitle>Cool Product</ProductTitle></Center></div>
-</LeftRightSection>
 ```
 
 Right Side Only
@@ -69,18 +109,61 @@ Right Side Only
 import { LeftRightSection, Center } from 'react-containers';
 
 <LeftRightSection>
-    <div></div>
-    <div><Center><Menus/></Center></div>
+    <div/>
+    <Center><Menus/></Center>
 </LeftRightSection>
 
 ```
 
 ## InlineItems
 
+Renders item inline with a spacing. Similar to something like what flex will do by default.
+
+```javascript
+render() {
+    return (
+        <div style={{display: 'flex'}}>
+            <div className={'spacer'}><MySpecialElement/></div>
+            <div className={'spacer'}><MyOtherElement/></div>
+        </div>
+    )
+}
+```
+
+can be replaced with something like
+
+```javascript
+
+render() {
+    return (
+        <InlineItems>
+            <Container><MySpecialElement/></Container>
+            <Container><MyOtherElement/></Container>
+        </InlineItems>
+    )
+}
+
+```
+
+To prevent repetition, you can do something like
+
+```javascript
+
+render() {
+    return (
+        <InlineItems container={Container}>
+            <MySpecialElement/>
+            <MyOtherElement/>
+        </InlineItems>
+    )
+}
+
+```
+
 
 ## Center
 
-This container will center horizontally and verticall a component rendered inside. By default it will automatically centered within the parent container as so...
+This container will center horizontally and vertically a component rendered inside.
 
 ```javascript
 
@@ -106,21 +189,22 @@ import { Center } from 'react-containers'
 
 ```
 
-## RenderIf
+## Render if
 
-Will call the function child if expression is true. Note that the child of this
-needs to be a function.
+Will call the function child if ifTrue attribute is true. Note that the child can be an element
+or a function but it is advisable to pass a function if you dont want the element created
+in cases where ifTrue attribute is initially false.
 
 ```javascript
 <RenderIf expr={this.props.shouldRender}>
    { (props) => <MyComponent {...props} /> };
 </RenderIf>
 
-//below is the same but the function child is not recreated on each render
+//below is the same but the function child is not created on subsequent render
 
 class MyComponent extends React.Component {
 
-    showToggledView = () {
+    showToggledView = () => {
         return <ToggledView {...this.props.toggledProps }/>;
     }
 
@@ -128,7 +212,7 @@ class MyComponent extends React.Component {
         return (
             <div>
                 <SomeComponent />
-                <RenderIf expr={this.props.isToggled}>
+                <Render ifTrue={this.props.isToggled}>
                     { this.showToggledView }
                 </RenderIf>
             </div>
@@ -138,3 +222,128 @@ class MyComponent extends React.Component {
 }
 ```
 
+## MappingOver
+
+Map over a given collection specifying the function that returns the component
+that maps over the element. Make sure your renderer adds a key
+
+```javascript
+
+import { MappingOver } from 'react-containers'
+
+...
+renderItem = (item, index) => (
+    <Item 
+        onClick={this.onItemClicked}
+        key={index} 
+        data={item}>
+        { item.name }
+    </Item>
+)
+
+render() {
+
+    return (
+        <Container>
+            <MappingOver collection={this.state.items}>
+                { this.renderItem }
+            </MappingOver>
+        </Container>
+
+    )
+
+}
+
+...
+```
+
+The component can also use an functional component as the child. MappingOver will automatically 
+create a React Element.
+
+```javascript
+
+const Item = (props) => {
+    const { element, index, collection, data } = props
+
+    return (
+        <div key={index}>{index}</div>
+    )
+}
+
+// from another component
+
+return (
+    <Container>
+        <MappingOver collection={this.state.items}>
+            { Item }
+        </MappingOver>
+    </Container>
+
+)
+
+```
+
+## findElement
+
+findElement is particularly useful for finding elements when you want to create tagger elements.
+Consider the following component
+
+```javascript
+
+// MyComponent.js
+
+export const Header = (props) => {
+    throw new Error('should not render')
+}
+export const Body = (props) => {
+    throw new Error('should not render')
+}
+export const Title = (props) => {
+    throw new Error('should not render')
+}
+
+export const App = (props) => {
+    const titleElement = findElement(Title, props)
+    const headerElement = findElement(Header, props)
+    const bodyElement = findElement(Body, props)
+    
+    return (
+        <Container>
+            <LeftRightSection>
+                <TitleContainer>{ titleElement.props.children }</TitleElement>
+                <MainHeaderContainer>{ headerElement.props.children }</TitleElement>
+            </LeftRightSection>
+            <BodyContainer>
+                { bodyElement.props.children }
+            </BodyContainer>
+        </Container>
+    )
+}
+
+```
+
+Now your users will just create MyApp with something like
+
+```javascript
+
+    import { Header, Body, Title, App } from 'myawesomeapp'
+
+    render() {
+        return (
+            <App>
+                <Title><Strong>My App Here</Strong></Title>
+                <Header><Menus /></Header>
+                <Body><MyAppContent></Body>                
+            </App>
+        )
+    }
+
+```
+
+This makes for a far better declarative way of using your component
+as they dont need to worry about structuring it but only declaring sections
+
+
+# Contributing
+
+You can submit a propasal if you have a container you wanted to contribute.

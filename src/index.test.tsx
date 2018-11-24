@@ -5,7 +5,7 @@ import {
   InlineItems,
   LeftRightSection,
   MappingOver,
-  RenderIf
+  Render
 } from './index'
 
 describe('index', () => {
@@ -16,7 +16,7 @@ describe('index', () => {
     expect(InlineItems).toBeDefined()
     expect(LeftRightSection).toBeDefined()
     expect(MappingOver).toBeDefined()
-    expect(RenderIf).toBeDefined()
+    expect(Render).toBeDefined()
   })
 
 })

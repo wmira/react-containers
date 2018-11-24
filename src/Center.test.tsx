@@ -5,14 +5,14 @@ import * as React from 'react'
 import { Center } from './Center'
 
 
-describe('Center', () => {
+describe("<Center />", () => {
     it('renders using flex and centers items', () => {
-      const wrapper = mount(<Center><div>Hello</div></Center>);
+      const underTest = mount(<Center><div>Hello</div></Center>);
 
-      expect(wrapper).toHaveStyleRule('display', 'flex')
-      expect(wrapper).toHaveStyleRule('justify-content', 'center')
-      expect(wrapper).toHaveStyleRule('align-items', 'center')
-      expect(wrapper).toHaveStyleRule('height', '100%')
-      expect(wrapper).toHaveStyleRule('width', '100%')
+      expect(underTest).toHaveStyleRule('display', 'flex')
+      expect(underTest).toHaveStyleRule('justify-content', 'center')
+      expect(underTest).toHaveStyleRule('align-items', 'center')
+      expect(underTest).toHaveStyleRule('height', '100%')
+      expect(underTest).toHaveStyleRule('width', '100%')
     })
 })
