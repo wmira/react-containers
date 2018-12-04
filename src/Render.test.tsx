@@ -124,4 +124,16 @@ describe("<Render/>", () => {
     expect(underTest.childAt(0)).toHaveLength(0)
 
   })
+  it(`passes data to child props if given`, () => {
+    const data = "ABC"
+    const childFn = jest.fn((d: string) => (<div>{data}</div>))
+    const underTest = mount(
+                  <Render
+                    data={data}
+                    ifTrue={true}>
+                      { childFn }
+                  </Render>
+    )
+    expect(childFn).toHaveBeenCalledWith(data)
+  })
 })
