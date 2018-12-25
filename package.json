@@ -1,6 +1,6 @@
 {
   "name": "react-containers",
-  "version": "16.0.1",
+  "version": "16.0.3",
   "description": "Common Reusable React Containers",
   "main": "index.js",
   "types": "index.d.ts",
@@ -9,7 +9,7 @@
     "predist": "rimraf dist/*",
     "playground": "webpack-dev-server --mode development --content-base playground src/playground/index.tsx ",
     "dist": "tsc && cp package.json dist/ && cp README.md dist/",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "repository": {

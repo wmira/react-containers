@@ -287,9 +287,9 @@ return (
 
 ```
 
-## findElement
+## findChild
 
-findElement is particularly useful for finding elements when you want to create tagger elements.
+findChild is particularly useful for finding elements when you want to create tagger elements.
 Consider the following component
 
 ```javascript
@@ -307,9 +307,9 @@ export const Title = (props) => {
 }
 
 export const App = (props) => {
-    const titleElement = findElement(Title, props)
-    const headerElement = findElement(Header, props)
-    const bodyElement = findElement(Body, props)
+    const titleElement = findChild(Title, props)
+    const headerElement = findChild(Header, props)
+    const bodyElement = findChild(Body, props)
     
     return (
         <Container>

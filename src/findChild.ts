@@ -12,14 +12,41 @@ export const findChild = <TP, P extends { children?: ReactNode }>(
     props: P
 ): ReactElement<TP & { children?: ReactNode }> => {
 
-    const { children } = props
-    const childrenArr = Children.toArray(children)
+    return findChildren(type, props)[0]
+}
 
-    for ( const child of childrenArr ) {
-        const childEl = child as React.ReactElement<TP>
-        if ( childEl && childEl.type === type ) {
-            return childEl;
-        }
+export const findChildren = <TP, P extends { children?: ReactNode }>(
+    type: React.ComponentType<TP>,
+    props: P
+): Array<ReactElement<TP & { children?: ReactNode }>> => {
+
+    const { children } = props
+    const filtered = Children
+                        .toArray(children)
+                        .filter(
+                            filterChildrenWithType(type)
+                        ) as Array<ReactElement<TP & { children?: ReactNode }>>
+    return filtered
+}
+
+/**
+ *
+ * @param type
+ */
+export const filterChildrenWithType = <TP>(type: React.ComponentType<TP>) => ( child: React.ReactElement<TP> ): boolean => {
+
+    if ( child && child.type === type ) {
+        return true
     }
-    return undefined;
+    // checks for Hot Loader
+    if ( child
+            && ( child as any).name === "ProxyFacade"
+            && child.type
+            && (child.type as any).__reactstandin__getCurrent ) {
+        const standInEl = (child.type as any).__reactstandin__getCurrent()
+        return standInEl === type
+
+    }
+
+    return false
 }
