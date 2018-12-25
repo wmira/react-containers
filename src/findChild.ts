@@ -40,8 +40,8 @@ export const filterChildrenWithType = <TP>(type: React.ComponentType<TP>) => ( c
     }
     // checks for Hot Loader
     if ( child
-            && ( child as any).name === "ProxyFacade"
             && child.type
+            && (child.type as any).name === "ProxyFacade"
             && (child.type as any).__reactstandin__getCurrent ) {
         const standInEl = (child.type as any).__reactstandin__getCurrent()
         return standInEl === type

@@ -34,8 +34,8 @@ describe('findChild', () => {
     const El = () => (<div/>)
     const standin = jest.fn(() => El)
     const child = {
-      name: 'ProxyFacade',
       type: {
+        name: 'ProxyFacade',
         '__reactstandin__getCurrent': standin
       }
     }
